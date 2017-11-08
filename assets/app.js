@@ -33,11 +33,10 @@
         for (var i = 0; i < bgOptions.length; i++) {
             if (bgOptions[i].selected === true) {
                 bgValue = bgOptions[i].value;
+                card.classList.remove(card.classList[1]);
+                card.classList.add(bgValue + "Background");
             }
         }
-
-        card.classList.remove(card.classList[1]);
-        card.classList.add(bgValue + "Background");
     }
 
     subBtn.addEventListener("click", function(e) {

@@ -39,9 +39,23 @@
         }
     }
 
+    function changeFont() {
+        var fontOptions = fontSelect.children,
+            fontValue = "";
+
+        for (var i = 0; i < fontOptions.length; i++) {
+            if (fontOptions[i].selected === true) {
+                fontValue = fontOptions[i].value;
+                card.children[1].children[0].classList = [];
+                card.children[1].children[0].classList.add(fontValue);
+            }
+        }
+    }
+
     subBtn.addEventListener("click", function(e) {
         e.preventDefault();
         changeImage();
         changeBGColor();
+        changeFont();
     });
 })();

@@ -1,0 +1,4 @@
+// IIFE
+(function() {
+    var obj = {};
+})();

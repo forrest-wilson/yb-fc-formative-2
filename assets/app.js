@@ -92,11 +92,25 @@
         // Checks to see whether the message is empty
         if (msg === "") {
             // If the message is empty, alert the user with a message
-            alert("Please enter a message to add to the card.");
+            var erMsg = document.createElement("span");
+            erMsg.setAttribute("id", "errorMessage");
+            erMsg.setAttribute("style", "color: red");
+            erMsg.innerHTML = "Please enter a message";
+
+            message.parentNode.insertBefore(erMsg, message.nextSibling);
         } else {
             // Otherwise append the message to the card
-            card.children[1].children[0].textContent = message.value;
-        }   
+            var erMsgEl = document.getElementById("errorMessage");
+
+            // Checks to see whether the element exists
+            if (erMsgEl) {
+                // If it does, remove it from the DOM
+                erMsgEl.parentElement.removeChild(erMsgEl);
+            }
+        }
+
+        // Add the text to the card
+        card.children[1].children[0].textContent = msg;
     }
 
     // Adds a listener to the submit button

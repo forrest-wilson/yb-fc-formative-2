@@ -1,0 +1,14 @@
+Pseudocode
+
+1. Break down the form into sections.
+
+2. Outline what each section should do functionally.
+    a. Find out what HTML attributes are needed
+    b. Assign them to local variables within each sections' function
+
+3. Add functions to be triggered through an event listner
+    a. Make sure each function is fired properly using console.log()
+
+4. Once everything is working, find a way to refactor the code if at all possible
+
+5. Comment the code

@@ -4,8 +4,7 @@
 // IIFE
 (function() {
     // Variable declarations
-    var form = document.getElementsByTagName("form")[0],
-        imgSelect = document.getElementById("image"),
+    var imgSelect = document.getElementById("image"),
         bgSelect = document.getElementById("background"),
         fontSelect = document.getElementById("font"),
         brdrSelect = document.getElementById("border"),

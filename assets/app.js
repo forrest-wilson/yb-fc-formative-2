@@ -46,8 +46,33 @@
         for (var i = 0; i < fontOptions.length; i++) {
             if (fontOptions[i].selected === true) {
                 fontValue = fontOptions[i].value;
-                card.children[1].children[0].classList = [];
+                card.children[1].children[0].classList = []; // Empty the classList array
                 card.children[1].children[0].classList.add(fontValue);
+            }
+        }
+    }
+
+    function changeBorder() {
+        var brdrOptions = brdrSelect.children,
+            brdrValue = "";
+
+        for (var i = 0; i < brdrOptions.length; i++) {
+            if (brdrOptions[i].selected === true) {
+                brdrValue = brdrOptions[i].value;
+
+                switch (brdrValue) {
+                    case "thin":
+                        brdrValue = "small";
+                        break;
+                    case "thick":
+                        brdrValue = "big";
+                        break;
+                    default:
+                        break;
+                }
+
+                card.children[1].classList = [];
+                card.children[1].classList.add(brdrValue + "Border");
             }
         }
     }
@@ -57,5 +82,6 @@
         changeImage();
         changeBGColor();
         changeFont();
+        changeBorder();
     });
 })();

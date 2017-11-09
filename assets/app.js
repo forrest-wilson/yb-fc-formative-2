@@ -1,4 +1,4 @@
-// Use Strict JS
+// Use strict rules
 "use strict";
 
 // IIFE

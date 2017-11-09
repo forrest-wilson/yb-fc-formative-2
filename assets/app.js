@@ -77,11 +77,18 @@
         }
     }
 
+    function changeText() {
+        var msgValue = message.value;
+
+        card.children[1].children[0].textContent = msgValue;
+    }
+
     subBtn.addEventListener("click", function(e) {
         e.preventDefault();
         changeImage();
         changeBGColor();
         changeFont();
         changeBorder();
+        changeText();
     });
 })();

@@ -42,6 +42,7 @@
 
         // Removes the 2nd item in the card classList
         card.classList.remove(card.classList[1]);
+
         // Adds a background class to the card classList using the
         // bgVal variable and concatenation
         card.classList.add(bgVal + "Background");
@@ -55,6 +56,7 @@
         // Emptys the classList array to make sure there
         // won't be any conflicting classes
         card.children[1].children[0].classList = [];
+
         // Adds the fontVal variable to the classList
         card.children[1].children[0].classList.add(fontVal);
     }
@@ -81,6 +83,7 @@
         // Emptys the classList array to make sure there
         // won't be any conflicting classes
         card.children[1].classList = [];
+        
         // Adds a border class to the card classList using the
         // brdrVal variable and concatenation
         card.children[1].classList.add(brdrVal + "Border");

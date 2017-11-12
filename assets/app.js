@@ -14,12 +14,14 @@
 
     // Generic function for getting the value property from the select list
     function getValue(select) {
-        var opt = select.children,
-            val = "";
+        // Assigns the arguments children to a variable
+        var opt = select.children;
 
+        // Loops through each item in the opt variable and returns
+        // the value at the index where the selected property is true
         for (var i = 0; opt.length; i++) {
             if (opt[i].selected === true) {
-                return val = opt[i].value;
+                return opt[i].value;
             }
         }
     }
@@ -84,32 +86,42 @@
         card.children[1].classList.add(brdrVal + "Border");
     }
 
-    // Changed the text in the card to whatever the user enters
+    // Helper method for creating the error message element
+    function createErrorEl() {
+        // Creates an element
+        var erMsg = document.createElement("span");
+        
+        // Adds id and style attributes to the element
+        erMsg.setAttribute("id", "errorMessage");
+        erMsg.setAttribute("style", "color: red");
+
+        // Sets the element text
+        erMsg.textContent = "Please enter a message";
+
+        // Appends the newly created element to the document
+        message.parentNode.insertBefore(erMsg, message.nextSibling);
+    }
+
+    // Change the text in the card to whatever the user enters
     function changeText() {
-        // Assigns the message entered by the user to a variable
-        var msg = message.value;
+        var msg = message.value,
+            erMsgEl = document.getElementById("errorMessage");
 
-        // Checks to see whether the message is empty
-        if (msg === "") {
-            // If the message is empty, alert the user with a message
-            var erMsg = document.createElement("span");
-            erMsg.setAttribute("id", "errorMessage");
-            erMsg.setAttribute("style", "color: red");
-            erMsg.innerHTML = "Please enter a message";
-
-            message.parentNode.insertBefore(erMsg, message.nextSibling);
-        } else {
-            // Otherwise append the message to the card
-            var erMsgEl = document.getElementById("errorMessage");
-
-            // Checks to see whether the element exists
-            if (erMsgEl) {
-                // If it does, remove it from the DOM
-                erMsgEl.parentElement.removeChild(erMsgEl);
-            }
+        if (msg === "" && !erMsgEl) {
+            // If the message is empty and there isn't an
+            // errorMessage element in the doc, run this
+            createErrorEl();
+        } else if (msg === "" && erMsgEl) {
+            // If the message is empty and the erMsgEl
+            // element exists, don't do anything
+        } else if (msg !== "" && erMsgEl) {
+            // If the message is not empty and the erMsgEl
+            // element exists, remove the erMsgEl element
+            erMsgEl.parentElement.removeChild(erMsgEl);
         }
 
-        // Add the text to the card
+        // Add the text to the card. Blank or with message
+        // as to not be render blocking
         card.children[1].children[0].textContent = msg;
     }
 
